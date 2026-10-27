@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Syne", system-ui, sans-serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
+
+  --color-ink: #0f3d2e;
+  --color-ink-soft: #1a5c45;
+  --color-mist: #e8f2ec;
+  --color-paper: #f7f4ee;
+  --color-sand: #ebe4d6;
+  --color-ochre: #d97706;
+  --color-ochre-deep: #b45309;
+  --color-danger: #b91c1c;
+  --color-line: #d6cec0;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background:
+      radial-gradient(ellipse 80% 50% at 10% -10%, #cfe6d8 0%, transparent 55%),
+      radial-gradient(ellipse 60% 40% at 100% 0%, #f0d9a8 0%, transparent 45%),
+      var(--color-paper);
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .nf-input {
+    @apply w-full rounded-xl border border-line bg-white/80 px-3.5 py-2.5 text-ink outline-none transition;
+    @apply focus:border-ink-soft focus:ring-2 focus:ring-ink/10;
+  }
+
+  .nf-label {
+    @apply mb-1.5 block text-sm font-semibold text-ink/80;
+  }
+
+  .nf-btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition;
+    @apply bg-ink text-mist hover:bg-ink-soft;
+    @apply disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .nf-btn-accent {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition;
+    @apply bg-ochre text-white hover:bg-ochre-deep;
+    @apply disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .nf-btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition;
+    @apply border border-line bg-white/60 text-ink hover:bg-white;
+    @apply disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .nf-panel {
+    @apply rounded-2xl border border-line/80 bg-white/70 p-5 backdrop-blur-sm;
+    box-shadow: 0 12px 40px -24px rgba(15, 61, 46, 0.45);
+  }
+}
